@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -34,6 +35,7 @@ public class SearchController {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         }
 
+        model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("jobs", jobs);
 
         return"search";
